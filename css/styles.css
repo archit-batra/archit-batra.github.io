@@ -931,6 +931,12 @@ footer {
     margin: 0px 5px;
 }
 
+@media (max-width: 991px) {
+	.da-slide p{
+		font-size: 20px;
+	}
+}
+
 @media (min-width: 768px) {
     .header .navbar-brand {
         padding-left: 0;
@@ -962,6 +968,11 @@ footer {
         min-width: initial;
         margin: 0px !important;
     }
+	
+	#aboutUs h2, .text-center h1{
+		font-size: 40px;
+	}
+	
 .da-slide h2 {
         font-size: 40px;
         text-align: center;
@@ -1015,6 +1026,35 @@ footer {
     }
 }
 
+@media (max-width: 741px) {
+	.da-slide p{
+		font-size: 17px;
+		width: 80%; 
+	}
+}
+
+@media (max-width: 580px) {
+	#aboutUs h2, .text-center h1{
+		font-size: 30px;
+	}
+	
+.da-slide h2 {
+        font-size: 30px;
+        }
+}
+
+@media (max-width: 526px) {
+	#aboutUs h2, .text-center h1, .da-slide h2, #quote h2, #quote h3, #skills h2, #experience h2, #portfolio h2, #contactUs h2{
+		font-size: 20px;
+	}
+	
+	.da-slide p{
+		font-size: 15px;
+		width: 90%;
+		top: 40px;	
+	}
+}
+
 @media (max-width: 480px) {
     .banner-container {
         background-size: contain;
@@ -1032,17 +1072,14 @@ footer {
     }
 
     .da-slide h2 {
-        font-size: 30px;
         text-align: center;
         width: initial;
         top: 10px;
     }
 
     .da-slide p {
-        width: 65%;
-        top: 65px;
-        height: 50px;
-    }
+        
+	}
 
     .page-section h1 {
         font-size: 3em;
@@ -1062,6 +1099,10 @@ footer {
     }
 }
 
+@media (max-width: 423px) {
+		
+	}
+
 @media (max-width: 320px) {
     .banner-container {
         background-size: contain;
@@ -1079,7 +1120,6 @@ footer {
     }
 
     .da-slide h2 {
-        font-size: 30px;
         text-align: center;
         width: initial;
         top: 10px;
