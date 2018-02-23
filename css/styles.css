@@ -1015,7 +1015,9 @@ footer {
 	margin:0px 12px;
 	}
 }
-
+#timeline .timeline-movement .timeline-item .timeline-panel {
+  padding-top: 50px;
+}
 }
 
 @media (max-width:760px) {
@@ -1036,10 +1038,8 @@ footer {
 	}
 }
 
-@media (max-width:700px){
-#timeline .timeline-movement .timeline-item .timeline-panel {
-  padding-top: 50px;
-}
+/* @media (max-width:700px){ */
+
 
 @media (max-width: 580px) {
 	#aboutUs h2, .text-center h1{
