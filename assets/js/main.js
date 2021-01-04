@@ -4,8 +4,8 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-function myFunction(x) {
-  x.classList.toggle("change");
+function transform() {
+  document.getElementById("mobile-menu").classList.toggle("change");
 }
 !(function($) {
   "use strict";
