@@ -8,6 +8,24 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+@font-face {
+  font-family: Open Sans;
+  src: url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i) format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Raleway;
+  src: url(https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i) format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i) format('woff');
+  font-display: swap;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
