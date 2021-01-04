@@ -49,7 +49,7 @@ self.addEventListener('fetch', function(event) {
   if (event.request.url == 'https://batraarchit.com/') {
     console.info('responding to server fetch with Service Worker!');
     event.respondWith(fetch(event.request).catch(function(e) {
-      let out = {Oops! Looks like you're offline.};
+      let out = {Oops, Looks like you're offline.};
       return new Response(JSON.stringify(out));
     }));
     return;
