@@ -1,24 +1,8 @@
-// Copyright 2016 Google Inc.
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-//      http://www.apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-//version
-
-self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open('your-magic-cache').then(function(cache) {
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('v1').then(function(cache) {
       return cache.addAll([
-        '/index.html',
+		'/index.html',
 		'/assets/css/style.css',
 		'/assets/img/favicon.png',
 		'/assets/img/apple-touch-icon.png',
@@ -46,18 +30,25 @@ self.addEventListener('install', function(e) {
 });
 
 self.addEventListener('fetch', function(event) {
-  if (event.request.url == 'https://batraarchit.com/') {
-    console.info('responding to server fetch with Service Worker!');
-    event.respondWith(fetch(event.request).catch(function(e) {
-      let out = {Gold: 1, Size: -1, Actions: []};
-      return new Response(JSON.stringify(out));
-    }));
-    return;
-  }
+  event.respondWith(caches.match(event.request).then(function(response) {
+    // caches.match() always resolves
+    // but in case of success response will have value
+    if (response !== undefined) {
+      return response;
+    } else {
+      return fetch(event.request).then(function (response) {
+        // response may be used only once
+        // we need to save clone to put one copy in cache
+        // and serve second one
+        let responseClone = response.clone();
 
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      return response || fetch(event.request);
-    })
-  );
+        caches.open('v1').then(function (cache) {
+          cache.put(event.request, responseClone);
+        });
+        return response;
+      }).catch(function () {
+        return caches.match('/assets/img/profile-img.webp');
+      });
+    }
+  }));
 });
