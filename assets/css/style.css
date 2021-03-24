@@ -352,7 +352,11 @@ h1, h2, h3, h4, h5, h6 {
   background: #0563bb;
   border-radius: 100%;
   color: white;
-  fill: white;
+}
+
+.icon:hover {
+  background: #067ded;
+  color: white;
 }
 
 @media (max-width: 992px) {
