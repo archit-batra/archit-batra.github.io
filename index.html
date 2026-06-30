@@ -207,7 +207,67 @@
   .edu-school{color:var(--ink-soft); font-size:14px; margin-top:3px;}
   .edu-year{font-family:var(--mono); font-size:12.5px; color:var(--ink-soft);}
 
-  /* ===== Case Studies ===== */
+  /* ===== Project Detail (deep case study) ===== */
+  .proj-detail{
+    background:var(--paper-raised); border:1px solid var(--line);
+    border-radius:3px; padding:40px; margin-bottom:32px;
+  }
+  .proj-detail:last-child{margin-bottom:0;}
+  .proj-detail-head{margin-bottom:28px;}
+  .proj-detail-head h3{
+    font-family:var(--display); font-size:26px; font-weight:600;
+    margin:10px 0 12px; max-width:640px; line-height:1.3;
+  }
+  .proj-detail-sub{
+    color:var(--ink-soft); font-size:15.5px; max-width:680px; line-height:1.65; margin-bottom:14px;
+  }
+  .proj-link-dark{
+    font-family:var(--mono); font-size:12.5px; color:var(--ink);
+    border-bottom:1px solid var(--accent); padding-bottom:2px; display:inline-block;
+  }
+  .proj-link-dark:hover{color:var(--accent);}
+
+  .proj-detail-body h4.proj-subhead{
+    font-family:var(--mono); font-size:13px; text-transform:uppercase;
+    letter-spacing:.04em; color:var(--accent); margin:28px 0 12px; font-weight:600;
+  }
+  .proj-detail-body p{
+    color:var(--ink-soft); font-size:15.5px; line-height:1.75; margin-bottom:14px; max-width:740px;
+  }
+  .proj-detail-body code{
+    font-family:var(--mono); font-size:13.5px; background:var(--accent-soft);
+    color:var(--accent); padding:1px 6px; border-radius:2px;
+  }
+  .proj-detail-body strong{color:var(--ink); font-weight:600;}
+
+  /* ===== Architecture Diagram ===== */
+  .diagram-box{
+    background:var(--code-bg); border-radius:4px; padding:32px 28px;
+    margin-bottom:8px; overflow-x:auto;
+  }
+  .diagram-row{
+    display:flex; align-items:center; gap:0; min-width:560px;
+  }
+  .diagram-row-second{margin-top:28px;}
+  .diagram-spacer{width:148px; flex-shrink:0;}
+  .diagram-node{
+    display:flex; flex-direction:column; gap:4px; align-items:center; justify-content:center;
+    background:#1C2030; border:1px solid #323852; border-radius:4px;
+    padding:14px 16px; min-width:148px; flex-shrink:0; text-align:center;
+  }
+  .diagram-node-label{font-family:var(--mono); font-size:13px; color:#fff; font-weight:600;}
+  .diagram-node-sub{font-family:var(--mono); font-size:10.5px; color:#7B8299;}
+  .diagram-kafka{border-color:var(--accent); background:#241A14;}
+  .diagram-arrow{
+    display:flex; flex-direction:column; align-items:center; gap:3px;
+    color:#4A5170; flex-shrink:0; padding:0 6px; min-width:64px;
+  }
+  .diagram-arrow span{font-family:var(--mono); font-size:10px; color:#7B8299; white-space:nowrap;}
+  .diagram-arrow-vertical{min-width:14px; padding:0;}
+  @media(max-width:600px){
+    .proj-detail{padding:26px 22px;}
+  }
+
   .case-study{
     background:var(--paper-raised); border:1px solid var(--line);
     border-left:3px solid var(--accent);
@@ -568,26 +628,130 @@
         <span class="section-num">05</span>
         <h2>Projects</h2>
       </div>
-      <p class="section-intro reveal">Personal backend projects exploring patterns I don't always get to use day-to-day.</p>
-      <div class="proj-grid reveal">
-        <div class="proj-card">
-          <h4>Event-Driven Microservices Platform</h4>
-          <ul>
-            <li>Built microservices using Spring Boot with Kafka-based producer-consumer messaging.</li>
-            <li>Designed REST APIs and integrated PostgreSQL for persistence.</li>
-            <li>Modeled service boundaries around independent, asynchronously-communicating domains.</li>
-          </ul>
-          <a class="proj-link" href="https://github.com/archit-batra/spring-event-driven-microservices-platform" target="_blank">View source ↗</a>
+      <p class="section-intro reveal">Personal backend projects exploring patterns I don't always get to use day-to-day — built end-to-end, including the mistakes along the way.</p>
+
+      <!-- Project 1: Event-Driven Microservices -->
+      <div class="proj-detail reveal">
+        <div class="proj-detail-head">
+          <span class="case-tag">Java · Spring Boot · Kafka</span>
+          <h3>Event-Driven Order Processing System</h3>
+          <p class="proj-detail-sub">Three independent Spring Boot microservices communicating asynchronously through Kafka — modeling how an order moves through creation, payment, and notification without any service calling another directly.</p>
+          <a class="proj-link-dark" href="https://github.com/archit-batra/spring-event-driven-microservices-platform" target="_blank">View source on GitHub ↗</a>
         </div>
-        <div class="proj-card">
-          <h4>Go Backend Platform</h4>
-          <ul>
-            <li>Built a backend service simulating wallet and transaction APIs in Go.</li>
-            <li>Implemented PostgreSQL transactions and async processing using Redis-backed workers.</li>
-            <li>Added audit logging and background workers for processing reliability.</li>
-          </ul>
-          <a class="proj-link" href="https://github.com/archit-batra/go-backend-platform" target="_blank">View source ↗</a>
+
+        <div class="diagram-box">
+          <div class="diagram-row">
+            <div class="diagram-node">
+              <span class="diagram-node-label">Order Service</span>
+              <span class="diagram-node-sub">POST /orders</span>
+            </div>
+            <div class="diagram-arrow">
+              <span>publishes</span>
+              <svg width="64" height="14" viewBox="0 0 64 14"><line x1="0" y1="7" x2="56" y2="7" stroke="currentColor" stroke-width="1.5"/><polygon points="56,2 64,7 56,12" fill="currentColor"/></svg>
+            </div>
+            <div class="diagram-node diagram-kafka">
+              <span class="diagram-node-label">Kafka</span>
+              <span class="diagram-node-sub">order-events</span>
+            </div>
+            <div class="diagram-arrow">
+              <span>consumes</span>
+              <svg width="64" height="14" viewBox="0 0 64 14"><line x1="0" y1="7" x2="56" y2="7" stroke="currentColor" stroke-width="1.5"/><polygon points="56,2 64,7 56,12" fill="currentColor"/></svg>
+            </div>
+            <div class="diagram-node">
+              <span class="diagram-node-label">Payment Service</span>
+              <span class="diagram-node-sub">processes payment</span>
+            </div>
+          </div>
+          <div class="diagram-row diagram-row-second">
+            <div class="diagram-spacer"></div>
+            <div class="diagram-arrow diagram-arrow-vertical">
+              <svg width="14" height="40" viewBox="0 0 14 40"><line x1="7" y1="0" x2="7" y2="32" stroke="currentColor" stroke-width="1.5"/><polygon points="2,32 7,40 12,32" fill="currentColor"/></svg>
+            </div>
+            <div class="diagram-node diagram-kafka">
+              <span class="diagram-node-label">Kafka</span>
+              <span class="diagram-node-sub">payment-events</span>
+            </div>
+            <div class="diagram-arrow">
+              <span>consumes</span>
+              <svg width="64" height="14" viewBox="0 0 64 14"><line x1="0" y1="7" x2="56" y2="7" stroke="currentColor" stroke-width="1.5"/><polygon points="56,2 64,7 56,12" fill="currentColor"/></svg>
+            </div>
+            <div class="diagram-node">
+              <span class="diagram-node-label">Notification Service</span>
+              <span class="diagram-node-sub">logs confirmation</span>
+            </div>
+          </div>
         </div>
+
+        <div class="proj-detail-body">
+          <p>Each service owns its own database and has no knowledge of the others — they only know the shape of the events on the Kafka topics they publish to or consume from. The Order Service writes the order to its database, then publishes an <code>OrderCreatedEvent</code>. The Payment Service, listening on that topic, picks it up, simulates a payment, and publishes a <code>PaymentCompletedEvent</code> of its own. The Notification Service consumes that and logs a confirmation — three services, no direct calls between them, fully decoupled.</p>
+
+          <h4 class="proj-subhead">Real problem I hit: a poison message stuck the consumer in a retry loop</h4>
+          <p>While testing manually, I pushed a plain string onto the <code>order-events</code> topic instead of a valid JSON payload. The Payment Service's consumer tried to deserialize it into an <code>OrderCreatedEvent</code>, failed, and — because Kafka had already committed that the consumer was "at" that offset for its consumer group — kept retrying the same bad message indefinitely on every restart. The fix taught me how Kafka actually tracks read position: offsets are tracked per consumer group, not per message, so the two real options are moving the group to a fresh offset (effectively a new <code>group-id</code>) or deleting and recreating the topic. I went with the consumer-group reset for a clean fix without losing the topic's other test data, and it's the reason I'm comfortable explaining consumer offset behavior in an interview rather than just reciting it.</p>
+
+          <h4 class="proj-subhead">Design patterns in play</h4>
+          <p>The system follows the <strong>producer-consumer</strong> pattern at the messaging layer, with each service applying a simple <strong>repository pattern</strong> over its own database. The overall data flow accepts <strong>eventual consistency</strong> by design — there's a deliberate small window where an order exists but payment hasn't processed yet, which is the correct tradeoff for this kind of asynchronous pipeline rather than trying to force synchronous consistency across three services.</p>
+        </div>
+
+        <div class="job-tech"><b>Stack —</b> Java, Spring Boot, Apache Kafka, PostgreSQL, Docker Compose, REST APIs</div>
+      </div>
+
+      <!-- Project 2: Go Wallet Platform -->
+      <div class="proj-detail reveal">
+        <div class="proj-detail-head">
+          <span class="case-tag">Go · PostgreSQL · Redis</span>
+          <h3>Go Backend Platform — Wallet &amp; Transfers</h3>
+          <p class="proj-detail-sub">A fintech-style wallet service modeled on Paytm/PhonePe-style money movement — atomic transfers, async audit logging via a Redis queue, and a separate worker process, written to learn Go's concurrency model hands-on.</p>
+          <a class="proj-link-dark" href="https://github.com/archit-batra/go-backend-platform" target="_blank">View source on GitHub ↗</a>
+        </div>
+
+        <div class="diagram-box">
+          <div class="diagram-row">
+            <div class="diagram-node">
+              <span class="diagram-node-label">API Service</span>
+              <span class="diagram-node-sub">Gin · cmd/server</span>
+            </div>
+            <div class="diagram-arrow">
+              <span>tx + lock</span>
+              <svg width="64" height="14" viewBox="0 0 64 14"><line x1="0" y1="7" x2="56" y2="7" stroke="currentColor" stroke-width="1.5"/><polygon points="56,2 64,7 56,12" fill="currentColor"/></svg>
+            </div>
+            <div class="diagram-node diagram-kafka">
+              <span class="diagram-node-label">PostgreSQL</span>
+              <span class="diagram-node-sub">wallets · users</span>
+            </div>
+          </div>
+          <div class="diagram-row diagram-row-second">
+            <div class="diagram-spacer"></div>
+            <div class="diagram-arrow diagram-arrow-vertical">
+              <span style="writing-mode:vertical-lr; font-size:11px;">LPUSH</span>
+              <svg width="14" height="40" viewBox="0 0 14 40"><line x1="7" y1="0" x2="7" y2="32" stroke="currentColor" stroke-width="1.5"/><polygon points="2,32 7,40 12,32" fill="currentColor"/></svg>
+            </div>
+            <div class="diagram-node diagram-kafka">
+              <span class="diagram-node-label">Redis</span>
+              <span class="diagram-node-sub">transfer_queue (list)</span>
+            </div>
+            <div class="diagram-arrow">
+              <span>BRPOP</span>
+              <svg width="64" height="14" viewBox="0 0 64 14"><line x1="0" y1="7" x2="56" y2="7" stroke="currentColor" stroke-width="1.5"/><polygon points="56,2 64,7 56,12" fill="currentColor"/></svg>
+            </div>
+            <div class="diagram-node">
+              <span class="diagram-node-label">Worker</span>
+              <span class="diagram-node-sub">cmd/worker → audit log</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-detail-body">
+          <p>The core feature is a <code>POST /wallets/transfer</code> endpoint that moves money between two wallets atomically — both balances update, or neither does. The naive approach (two separate <code>UPDATE</code> statements) breaks under concurrency and crash scenarios: if the process dies between the debit and the credit, money disappears. I implemented it as a single database transaction with row-level locking (<code>SELECT ... FOR UPDATE</code>) on both wallet rows before reading balances or applying updates.</p>
+
+          <h4 class="proj-subhead">Real problem I hit: lock ordering and a cross-process deadlock</h4>
+          <p>The first version locked the sender's row, then the receiver's row, in whatever order they arrived in the request. Two concurrent transfers in opposite directions (A→B and B→A) could each lock one row and then block waiting for the other — a classic deadlock. The fix was to always lock the two wallet rows in a consistent order regardless of who's sending and who's receiving (lower user ID first), so two concurrent transfers can never form a circular wait.</p>
+          <p>Separately, when I moved audit logging off the request path into a background worker, I first tried passing events through an in-memory Go channel between the API and worker. That immediately hit <code>fatal error: all goroutines are asleep - deadlock!</code> — because <code>cmd/server</code> and <code>cmd/worker</code> are two separate OS processes with separate memory spaces; a channel only works within a single process. That was a genuinely useful mistake — it's what pushed me to replace the channel with a Redis-backed queue (<code>LPUSH</code> from the API, blocking <code>BRPOP</code> in the worker), which actually works across process boundaries.</p>
+
+          <h4 class="proj-subhead">Design and testing</h4>
+          <p>The project follows Go's standard <code>cmd/</code> + <code>internal/</code> layout, with each domain (user, wallet, audit) split into <code>model</code>, <code>repository</code>, and <code>handler</code> files to keep HTTP concerns out of business logic. I added integration tests against a real Postgres instance covering the success path and the insufficient-balance rejection path, plus health checks for both Postgres and Redis and graceful shutdown handling for the worker process.</p>
+        </div>
+
+        <div class="job-tech"><b>Stack —</b> Go, Gin, PostgreSQL, Redis, Docker Compose, REST APIs</div>
       </div>
     </div>
   </section>
@@ -600,7 +764,7 @@
         <h2>Recommended</h2>
       </div>
       <div class="testimonial reveal">
-        <blockquote>When I managed him for a project at Goodyear, I found him to be skilled and dependable. No matter what I asked him to do, he got it done and he did it quickly. I enjoyed working with him and would have him on my team again.</blockquote>
+        <blockquote>When I managed Archit for a project at Goodyear, I found him to be skilled and dependable. No matter what I asked him to do, he got it done and he did it quickly. I enjoyed working with him and would have him on my team again.</blockquote>
         <div class="testimonial-attr">
           <img class="testimonial-avatar" src="assets/img/testimonials/testimonials-1.webp" alt="Justin Frazier">
           <div>
