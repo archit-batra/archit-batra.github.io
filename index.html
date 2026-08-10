@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Archit Batra — Senior Backend Engineer</title>
 <meta name="theme-color" content="#0F172A">
-<meta name="description" content="Archit Batra — Senior Backend Engineer specializing in Java, Spring Boot, Microservices and distributed systems. 10 years building enterprise and financial backend systems.">
+<meta name="description" content="Archit Batra — Senior Backend Engineer specializing in Java, Spring Boot, REST APIs, system design and distributed systems. 10 years building enterprise and financial backend systems.">
 <link rel="icon" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -423,18 +423,18 @@
       </div>
       <div class="about-grid">
         <div class="about-text reveal">
-          <p>I'm a backend engineer with <strong>10 years of experience</strong> building scalable, reliable systems for enterprise and financial applications. My core stack is <strong>Java and Spring Boot</strong> — I've spent most of my career designing REST APIs and microservices architectures across enterprise environments.</p>
-          <p>At Macquarie, I've worked deep in <strong>credit risk technology</strong> — systems where correctness, auditability, and approval workflows matter as much as performance. I've also worked hands-on with <strong>Kafka and event-driven patterns</strong> through personal projects, and bring practical experience with <strong>Docker, AWS, and PostgreSQL</strong>.</p>
-          <p>Beyond writing code, I care about <strong>system design</strong> — thinking through scale, failure modes, and long-term maintainability — and about <strong>mentoring</strong> the engineers around me. I led my team's migration to GitHub, establishing branching conventions and CI/CD workflows that are still in use today.</p>
+          <p>I'm a backend engineer with <strong>10 years of experience</strong> building reliable systems for enterprise and financial applications. My core stack is <strong>Java and Spring Boot</strong>, with hands-on experience in REST APIs, backend development, system design, and SQL.</p>
+          <p>At Macquarie, I've worked on <strong>credit risk technology</strong> where correctness, auditability, and approval workflows are critical. I've also been building hands-on projects around <strong>Kafka, event-driven architecture, microservices, and Go</strong> to strengthen my experience with modern distributed backend systems.</p>
+          <p>Beyond writing code, I care about <strong>system design</strong> — thinking through scalability, performance, security, failure modes, and long-term maintainability. I also enjoy <strong>mentoring</strong> engineers and have led engineering initiatives such as our GitHub migration and development workflow improvements.</p>
         </div>
         <div class="about-card reveal">
           <dl>
             <dt>Based in</dt><dd>Gurugram, India</dd>
-            <dt>Focus</dt><dd>Backend &amp; Distributed Systems</dd>
-            <dt>Core stack</dt><dd>Java · Spring Boot · Microservices</dd>
-            <dt>Domain</dt><dd>Credit Risk &amp; Enterprise Systems</dd>
+            <dt>Focus</dt><dd>Backend Engineering &amp; System Design</dd>
+            <dt>Core stack</dt><dd>Java · Spring Boot · REST APIs</dd>
+            <dt>Domain</dt><dd>Credit Risk &amp; Financial Systems</dd>
             <dt>Education</dt><dd>B.Tech, Computer Science</dd>
-            <dt>Open to</dt><dd>Senior / Staff Backend roles</dd>
+            <dt>Open to</dt><dd>Senior / Lead Backend roles</dd>
           </dl>
         </div>
       </div>
@@ -476,6 +476,14 @@
           </div>
         </div>
         <div class="skill-block">
+          <h4>Architecture</h4>
+          <div class="skill-tags">
+            <span>HLD</span><span>System Design</span><span>Microservices</span>
+            <span>Event-Driven Architecture</span><span>Monolithic Architecture</span>
+            <span>NFRs</span><span>Scalability</span><span>Performance</span><span>Security</span>
+          </div>
+        </div>
+        <div class="skill-block">
           <h4>Tools &amp; Observability</h4>
           <div class="skill-tags">
             <span>Git</span><span>Swagger</span><span>Splunk</span>
@@ -505,15 +513,15 @@
         </div>
         <div class="job-org">Macquarie Group, Gurugram</div>
         <ul>
-          <li>Develop and support the Credit Risk web application — counterparty limits, ratings, and policy enforcement — in an agile, production-support-included environment.</li>
-          <li>Designed, built, and deployed the backend for the Country Risk Rating and Counterparty Notes modules, reducing manual processing costs and improving overall user experience. <a href="#case-crr" style="color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:1px;">Full case study ↓</a></li>
-          <li>Added policy validations and warning messages across the Credit system to catch and prevent breaches before they reached approval.</li>
-          <li>Built the Credit status history modal in React.js, giving risk users a visual audit trail of rating changes over time.</li>
-          <li>Rebuilt the legal entity data pipeline that previously relied on an automated feed, sourcing instead from the data warehouse via Trino CLI with full data-quality validation. <a href="#case-pipeline" style="color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:1px;">Full case study ↓</a></li>
-          <li>Led the team's GitHub migration — branching strategy, dev containers, and CI/CD via GitHub Actions; proposed a rebase-check safeguard adopted team-wide to prevent code overrides in trunk-based development.</li>
-          <li>Mentored team members on Java, Spring Boot, and Git-based workflows; conducted regular code reviews.</li>
+          <li><strong>Designed HLD and built end-to-end backend</strong> for Country Risk Rating, including formula-driven scoring, <strong>multi-stage approval workflow</strong>, email notifications, and approval/rejection persistence. <a href="#case-crr" style="color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:1px;">Full case study ↓</a></li>
+          <li><strong>Designed and built Counterparty Notes module</strong> with REST APIs, attachment handling, and full CRUD operations.</li>
+          <li>Built SQL-backed Customer data retrieval for a new product, aggregating <strong>multiple joins</strong> for customer overview.</li>
+          <li>Developed MBE Limits discretion calculator to determine <strong>approval tiers</strong> and identify valid approved workbooks through <strong>multi-step validation across five years</strong>.</li>
+          <li>Built React.js credit history modal displaying <strong>five years of customer credit history</strong> through backend APIs.</li>
+          <li>Streamlined data pipeline (Trino → CSV → SQL Server), <strong>eliminating manual sourcing</strong> and <strong>stale-data reprocessing</strong>. <a href="#case-pipeline" style="color:var(--accent); border-bottom:1px solid var(--accent); padding-bottom:1px;">Full case study ↓</a></li>
+          <li><strong>Led GitHub migration</strong>, established development/PR practices, <strong>mentored developers</strong>, and conducted code reviews.</li>
         </ul>
-        <div class="job-tech"><b>Stack —</b> Java, Go, Spring Boot, React.js, JavaScript, Microsoft SQL Server, AWS, Docker, Splunk, Atlassian Bamboo, Swagger, Grafana, Jira</div>
+        <div class="job-tech"><b>Stack —</b> Java, Spring Boot, REST APIs, SQL Server, AWS, Docker, Splunk, GitHub Copilot, React.js</div>
       </div>
 
       <div class="job reveal">
@@ -600,7 +608,7 @@
           <p><strong>The problem.</strong> Business users needed a way to assess country-level risk using a structured scorecard — but the calculation logic, the approval chain, and the audit trail all had to be enforced in software, not spreadsheets, so risk decisions stayed consistent and traceable.</p>
           <p><strong>What I built.</strong> A user fills in several scorecard fields for a country. Some of those fields are calculated automatically from the others using business-defined formulas — so the backend had to model these dependencies correctly and recompute affected fields as inputs changed. Once complete, the system derives a final country rating from the scorecard.</p>
           <p>The rating then enters a multi-stage approval workflow: it's submitted with supporting comments, routed for business approval, and on a decision, the database is updated and the system automatically emails the relevant parties — distinct notifications for approval-needed, approved, and rejected outcomes.</p>
-          <p>Alongside this, I built the Counterparty Notes module, letting risk users attach contextual notes and supporting documents directly to a counterparty's record — closing a gap where this context previously lived outside the system entirely.</p>
+          <p>Alongside this, I designed and built the Counterparty Notes module with REST APIs, full CRUD operations, and attachment handling, allowing risk users to attach contextual notes and supporting documents directly to a counterparty's record.</p>
           <p><strong>Why it mattered.</strong> Before this, rating logic and approvals were harder to track consistently. Centralizing the calculation and approval flow in the application reduced manual back-and-forth and gave business stakeholders a clear, auditable record of how every rating was reached and approved.</p>
         </div>
       </div>
@@ -611,11 +619,12 @@
           <h3>Rebuilding the legal entity data pipeline</h3>
         </div>
         <div class="case-body">
-          <p><strong>The problem.</strong> Legal entity data was originally sourced from a daily automated feed from an upstream transfer system. When that feed became unreliable, the job needed to be rebuilt to source the same data manually from the enterprise data warehouse instead — without losing the reliability guarantees the original feed provided.</p>
-          <p><strong>What I built.</strong> A daily job that pulls legal entity data from the data warehouse using the Trino CLI, transforms it into the correct CSV format, and bulk-loads it (via BCP) into SQL Server. Before any load, the pipeline runs a data-quality check comparing row counts between the warehouse view and the generated CSV — catching silent data loss before it reaches downstream systems.</p>
-          <p>A second validation gate sits in front of the staging table: the job checks whether that day's data is actually available before proceeding, preventing accidental reprocessing of stale data when an upstream delay occurs.</p>
-          <p>When the data team decommissioned certain upstream fields, I coordinated directly with the data warehouse team and the legal entities team to assess the impact, and worked with business stakeholders and other downstream teams to manage the transition without disruption.</p>
-          <p><strong>Why it mattered.</strong> This wasn't just a migration — it was rebuilding trust in a daily data feed that other teams depend on. The validation gates mean failures are caught at the source rather than surfacing as confusing downstream data issues days later.</p>
+          <p><strong>The problem.</strong> Legal entity data was received through a daily feed from an upstream transfer system. The process required manual intervention to source and prepare the data for downstream consumption, creating opportunities for data-quality and stale-data issues.</p>
+          <p><strong>What I built.</strong> I streamlined the daily process by sourcing legal entity data from the enterprise data warehouse using the Trino CLI, generating the required CSV output, correcting the data format, and bulk-loading the data into SQL Server using BCP.</p>
+          <p>Before loading the data, I added a data-quality check comparing row counts between the data warehouse view and the generated CSV to catch discrepancies before they reached downstream systems.</p>
+          <p>I also added a validation gate before loading the staging table to confirm that the current day's data was available. This prevented the process from reprocessing older data when the latest data was unavailable.</p>
+          <p>I coordinated with the data team, Legal Entities team, downstream teams, and business stakeholders to resolve decommissioned-field issues and assess their impact across dependent systems.</p>
+          <p><strong>Why it mattered.</strong> The changes removed manual data-sourcing steps, added validation before processing, and reduced the risk of stale or inconsistent data reaching downstream teams.</p>
         </div>
       </div>
     </div>
